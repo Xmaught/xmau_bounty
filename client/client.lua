@@ -10,7 +10,7 @@ local gpsz = 0.0
 function missionstart()
 
 --Elige el array de coordenadas(lugar)
-	local randomNCoords = math.random(2)
+	local randomNCoords = math.random(21)
 	local chossenCoords = {}
 	print(randomNCoords)
 
@@ -140,9 +140,10 @@ function stopmission()
 	SetGpsMultiRouteRender(false)
 	for k,v in pairs(createdped) do
 		DeletePed(v)
-		table.remove(createdped, k)
-		table.remove(count, k)
+		Wait(500)
 	end
+	table.remove{createdped}
+	table.remove{count}
 end
 
 function DrawTxt(str, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
